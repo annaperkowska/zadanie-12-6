@@ -13,11 +13,14 @@ function searchCountries() {
 	});
 }
 
+var fullName = item.altSpellings[2];
+
 function showCountriesList(resp) {
 	countriesList.empty();
 	resp.forEach(function(item) {
+		var fullName = item.altSpellings[2];
 		$('<li>').text('Country: ' + item.name).appendTo(countriesList);
-		/*$('<li>').text('Full name: ' + item.altSpellings).appendTo(countriesList);*/
+		$('<li>').text('Full name: ' + fullName).appendTo(countriesList);
 		$('<li>').text('Capital city: '+ item.capital).appendTo(countriesList);
 		$('<li>').text('Region: ' + item.region).appendTo(countriesList);
 		$('<li>').text('Timezone: ' + item.timezones).appendTo(countriesList);
