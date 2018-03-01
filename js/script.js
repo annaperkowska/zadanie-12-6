@@ -1,7 +1,13 @@
 var url = 'https://restcountries.eu/rest/v1/name/';
 var countriesList = $('#countries');
+var flag = $('#flag');
 
 $('#search').click(searchCountries);
+
+$('#country-name').keypress(function() {
+	if(event.which == 13) searchCountries();
+});
+		
 
 function searchCountries() {
 	var countryName = $('#country-name').val();
@@ -13,19 +19,38 @@ function searchCountries() {
 	});
 }
 
-var fullName = item.altSpellings[2];
-
 function showCountriesList(resp) {
 	countriesList.empty();
 	resp.forEach(function(item) {
-		var fullName = item.altSpellings[2];
-		$('<li>').text('Country: ' + item.name).appendTo(countriesList);
-		$('<li>').text('Full name: ' + fullName).appendTo(countriesList);
-		$('<li>').text('Capital city: '+ item.capital).appendTo(countriesList);
-		$('<li>').text('Region: ' + item.region).appendTo(countriesList);
-		$('<li>').text('Timezone: ' + item.timezones).appendTo(countriesList);
-		$('<li>').text('Population: ' + item.population).appendTo(countriesList);
-		$('<li>').text('Area: ' + item.area + " sq. km").appendTo(countriesList);
-		$('<li>').text('Currency: ' + item.currencies).appendTo(countriesList);
-	})
+		var code = item.alpha3Code.toLowerCase();
+		var table = $('<table>').addClass('countries-table').appendTo(countriesList);
+		var tableHeader = $('<tr>').addClass('table-header').appendTo(countriesList);
+		var flag = $('<th>').addClass('flag').appendTo(tableHeader);
+		$('<img>').attr('src', 'https://restcountries.eu/data/' + code + '.svg').appendTo(flag);
+		/*$('<img>').attr("src", 'http://www.countryflags.io/' + code + '/flat/64.png').appendTo(flag);*/
+		$('<th>').addClass('name').text(item.name).appendTo(tableHeader);
+
+		var tableContent = $('<tbody>').addClass('table-content').appendTo(countriesList);
+
+		var capital = $('<tr>').addClass('capital').appendTo(tableContent);
+		$('<td>').text('Capital city').appendTo(capital);
+		$('<td>').text(item.capital).appendTo(capital);
+
+		var region = $('<tr>').addClass('region').appendTo(tableContent);
+		$('<td>').text('Region').appendTo(region);
+		$('<td>').text(item.region).appendTo(region);
+
+		var population = $('<tr>').addClass('population').appendTo(tableContent);
+		$('<td>').text('Population').appendTo(population);
+		$('<td>').text(item.population).appendTo(population);
+
+		var area = $('<tr>').addClass('area').appendTo(tableContent);
+		$('<td>').text('Area').appendTo(area);
+		$('<td>').text(item.area + 'sq. km').appendTo(area);
+
+		var currency = $('<tr>').addClass('currency').appendTo(tableContent);
+		$('<td>').text('Currency').appendTo(currency);
+		$('<td>').text(item.currencies).appendTo(currency);
+	});	
 }
+

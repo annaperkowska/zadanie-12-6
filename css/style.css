@@ -1,0 +1,45 @@
+body {
+	box-sizing: border-box;
+	font-family: 'Krona One', sans-serif;
+	background-image: url(https://images.pexels.com/photos/335393/pexels-photo-335393.jpeg?h=350&auto=compress&cs=tinysrgb);
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #FFF;
+	text-shadow: 2px 2px black;
+}
+h1, h2 {
+	text-align: left;
+	margin-left: 210px;
+}
+input {
+	margin-left: 210px;
+}
+.table-header .name {
+	font-size: 24px;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    vertical-align: middle;
+	text-align: left;
+}
+td {
+	border-bottom: 1px solid black;
+}
+
+tr td:nth-child(odd) {
+	width: 140px;
+	padding: 10px;
+}
+tr td:nth-child(even) {
+	width: 300px;
+	padding: 10px 30px;
+}
+.flag img {
+    height: auto;
+    width: 180px;
+    border: 1px solid black;
+}
+
+
+
+
+
