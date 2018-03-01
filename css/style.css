@@ -15,6 +15,9 @@ h1, h2 {
 input {
 	margin-left: 210px;
 }
+.countries {
+	position: relative;
+}
 .table-header .name {
 	font-size: 24px;
     text-transform: uppercase;
@@ -42,10 +45,12 @@ tr td:nth-child(even) {
     border: 1px solid black;
 }
 footer {
+	position: absolute;
 	text-align: center;
 	font-size: 16px;
 	padding-top: 50px;
-	margin-bottom: 0;
+	bottom: 0;
+	left: 40%;
 	height: 50px;
 }
 
