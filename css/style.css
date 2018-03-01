@@ -6,6 +6,7 @@ body {
 	background-repeat: no-repeat;
 	color: #FFF;
 	text-shadow: 2px 2px black;
+	
 }
 h1, h2 {
 	text-align: left;
@@ -35,11 +36,18 @@ tr td:nth-child(even) {
 	padding: 10px 30px;
 }
 .flag img {
+	margin-top: 50px;
     height: auto;
     width: 180px;
     border: 1px solid black;
 }
-
+footer {
+	text-align: center;
+	font-size: 16px;
+	padding-top: 50px;
+	margin-bottom: 0;
+	height: 50px;
+}
 
 
 

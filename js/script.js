@@ -27,7 +27,6 @@ function showCountriesList(resp) {
 		var tableHeader = $('<tr>').addClass('table-header').appendTo(countriesList);
 		var flag = $('<th>').addClass('flag').appendTo(tableHeader);
 		$('<img>').attr('src', 'https://restcountries.eu/data/' + code + '.svg').appendTo(flag);
-		/*$('<img>').attr("src", 'http://www.countryflags.io/' + code + '/flat/64.png').appendTo(flag);*/
 		$('<th>').addClass('name').text(item.name).appendTo(tableHeader);
 
 		var tableContent = $('<tbody>').addClass('table-content').appendTo(countriesList);
